@@ -1,0 +1,70 @@
+{
+    "products": [
+        {
+            "name": "Organic Whole Milk",
+            "price": 2.99,
+            "image": "../images/WholeMilk.png",
+            "description": "USDA Organic whole milk with 3.5% fat"
+        },
+        {
+            "name": "Salmon Atlantic Farm Raised Portion, 6 Ounces",
+            "price": 6.99,
+            "image": "../images/Salmon.png",
+            "description": "Fresh farm-raised Atlantic salmon portion"
+        },
+        {
+            "name": "365 by Whole Foods Market Berry Blend, 16 OZ",
+            "price": 3.99,
+            "image": "../images/berries.png",
+            "description": "USDA organic mixed berries, frozen"
+        },
+        {
+            "name": "365 By Whole Foods Market, Organic Original Hummus, 16 Ounces",
+            "price": 4.99,
+            "image": "../images/OrganicHummus.png",
+            "description": "USDA organic hummus, made with garbanzo beans and lemon juice"
+        },
+        {
+            "name": "Organic Baby Spinach, 5 oz",
+            "price": 2.99,
+            "image": "../images/Spinach.png",
+            "description": "USDA organic baby spinach, fresh and ready to eat"
+        },
+        {
+            "name": "365 Everyday Value, Organic Extra Virgin Olive Oil 100% Mediterranean Blend, 16.9 fl oz",
+            "price": 8.99,
+            "image": "../images/ExtraVirginOliveOil.png",
+            "description": "USDA organic extra virgin olive oil, cold-pressed from premium olives"
+        },
+        {
+            "name": "Quinoa Tri Color Regenerative Organic, 16 Ounce",
+            "price": 5.49,
+            "image": "../images/Quinoa.png",
+            "description": "USDA organic quinoa, rich in protein and fiber"
+        },
+        {
+            "name": "70% Dark Chocolate Bar, 2.8 Ounces",
+            "price": 3.49,
+            "image": "../images/DarkChocolate.png",
+            "description": "USDA organic dark chocolate, made with 70% cocoa"
+        },
+        {
+            "name": "Avocados, 4 Counts",
+            "price": 3.99,
+            "image": "../images/Avocado.png",
+            "description": "USDA organic avocado, fresh and ready to eat"
+        },
+        {
+            "name": "Organic Light Brown Sugar, 24 Ounces",
+            "price": 3.89,
+            "image": "../images/BrownSugar.png",
+            "description": "USDA organic brown sugar, pure and natural"
+        },
+        {
+            "name": "Organic Eggs Free Range Large Brown, 12 Counts",
+            "price": 7.49,
+            "image": "../images/Eggs.png",
+            "description": "USDA organic free-range eggs, rich in omega-3 fatty acids"
+        }
+    ]
+}
