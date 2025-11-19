@@ -1,7 +1,31 @@
+:root {
+    /* Whole Foods Green System */
+    --green-dark:   #004e36;
+    --green-mid:    #006f46;
+    --green-light:  #2c8746;
+
+    /* Text Colors */
+    --text-dark:    #2e2d2b;  /* body on white */
+    --text-light:   #e4e4e4;  /* body on green */
+
+    /* Placeholder Gray */
+    --placeholder:  #8f8f8f;
+
+    /* Backgrounds */
+    --bg-white:     #ffffff;
+    --bg-green:     var(--green-dark);
+}
+.header, h1, h2, h3, button {
+    font-family: "EB Garamond", serif;
+}
+body, p, input, .details {
+    font-family: "Lora", serif;
+}
 body {
     margin: 0;
     font-family: sans-serif;
-    background-color: #f5f5f5;
+    background-color: var(--bg-green);
+    color: var(--text-light);
 }
 
 /* Screens */
@@ -12,6 +36,12 @@ body {
 
 .hidden {
     display: none;
+}
+
+.logo {
+    width: 140px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Bottom Navigation Bar */
