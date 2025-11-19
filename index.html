@@ -8,7 +8,40 @@
     
   </head>
   <body>
-    
+    <div id="app">
+      
+      <div id="screen-login" class="screen">
+        <h1>Login</h1>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="showScreen('screen-home')">Login</button>
+      </div>
+
+      <div id="screen-home" class="screen hidden">
+        <h1>Home</h1>
+      </div>
+
+      <div id="screen-products" class="screen hidden">
+        <h1>Products</h1>
+      </div>
+
+      <div id="screen-profile" class="screen hidden">
+        <h1>Profile</h1>
+      </div>
+
+      <div id="screen-lists" class="screen hidden">
+        <h1>Lists</h1>
+      </div>
+    </div>
+
+    <div id="navbar">
+      <button onclick="showScreen('screen-home')">Home</button>
+      <button onclick="showScreen('screen-products')">Products</button>
+      <button onclick="showScreen('screen-profile')">Profile</button>
+      <button onclick="showscreen('screen-lists')">Lists</button>
+    </div>
+    <script src="app.js"></script>
   </body>
 </html>
+
 
