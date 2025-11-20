@@ -4,3 +4,7 @@ function showScreen(id) {
     });
     document.getElementById(id).classList.remove('hidden');
 }
+function login() {
+    showScreen('screen-home');
+    document.getElementById('navbar').classList.remove('hidden');
+}
