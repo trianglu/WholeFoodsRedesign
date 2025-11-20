@@ -68,7 +68,7 @@ body {
     color: white;
     font-size: 16px;
 }
-imput {
+input {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -78,7 +78,7 @@ imput {
     color: var(--text-dark);
     font-family: "Lora", serif;
 }
-imput::placeholder {
+input::placeholder {
     color: var(--placeholder);
 }
 button {
@@ -113,3 +113,4 @@ button {
 #navbar.hidden {
     display: none;
 }
+
