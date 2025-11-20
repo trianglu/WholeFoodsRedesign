@@ -14,7 +14,7 @@
         <h1>Login</h1>
         <p>Username: <input type="text" placeholder="Username"></p>
         <p>Password: <input type="password" placeholder="Password"></p>
-        <button onclick="showScreen('screen-home')">Login</button>
+        <button onclick="login()">Login</button>
       </div>
 
       <div id="screen-home" class="screen hidden">
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div id="navbar">
+    <div id="navbar" class="hidden">
       <button onclick="showScreen('screen-home')">Home</button>
       <button onclick="showScreen('screen-products')">Products</button>
       <button onclick="showScreen('screen-profile')">Profile</button>
@@ -47,6 +47,7 @@
     <script src="app.js"></script>
   </body>
 </html>
+
 
 
 
