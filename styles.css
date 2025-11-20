@@ -15,6 +15,11 @@
     --bg-white:     #ffffff;
     --bg-green:     var(--green-dark);
 }
+#app {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
 .header, h1, h2, h3, button {
     font-family: "EB Garamond", serif;
 }
@@ -35,7 +40,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .logo {
@@ -62,4 +67,49 @@ body {
     border: none;
     color: white;
     font-size: 16px;
+}
+imput {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: var(--text-dark);
+    font-family: "Lora", serif;
+}
+imput::placeholder {
+    color: var(--placeholder);
+}
+button {
+    background-color: var(--green-light);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: "EB Garamond", serif;
+    color: white;
+    font-size: 18px;
+}
+#navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--green-dark);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navbar button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 16px;
+    font-family: "EB Garamond", serif;
+}
+
+#navbar.hidden {
+    display: none;
 }
