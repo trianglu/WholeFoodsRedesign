@@ -82,6 +82,7 @@ button {
     font-family: "EB Garamond", serif;
     color: white;
     font-size: 18px;
+    cursor: pointer;
 }
 #navbar {
     position: fixed;
@@ -106,6 +107,4 @@ button {
 #navbar.hidden {
     display: none;
 }
-
-
 
