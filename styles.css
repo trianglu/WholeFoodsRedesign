@@ -5,8 +5,8 @@
     --green-light:  #2c8746;
 
     /* Text Colors */
-    --text-dark:    #2e2d2b;  /* body on white */
-    --text-light:   #e4e4e4;  /* body on green */
+    --text-dark:    #2e2d2b;
+    --text-light:   #e4e4e4;
 
     /* Placeholder Gray */
     --placeholder:  #8f8f8f;
@@ -15,27 +15,32 @@
     --bg-white:     #ffffff;
     --bg-green:     var(--green-dark);
 }
+
+/* App container */
 #app {
     max-width: 480px;
     margin: 0 auto;
     min-height: 100vh;
+    padding-bottom: 80px;
 }
+
+/* Typography */
 .header, h1, h2, h3, button {
     font-family: "EB Garamond", serif;
 }
+
 body, p, input, .details {
     font-family: "Lora", serif;
 }
+
 body {
     margin: 0;
-    font-family: sans-serif;
     background-color: var(--bg-green);
     color: var(--text-light);
 }
 
 /* Screens */
 .screen {
-    display: block;
     padding: 20px;
 }
 
@@ -43,47 +48,14 @@ body {
     display: none !important;
 }
 
+/* Logo */
 .logo {
     width: 250px;
     margin: 0 auto;
     display: block;
 }
 
-/* Bottom Navigation Bar */
-#navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: #004d40; /* Dark Whole Foods Green-ish */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    background-color: #ffffff;
-    color: var(--text-dark);
-    font-family: "Lora", serif;
-}
-input::placeholder {
-    color: var(--placeholder);
-}
-button {
-    background-color: var(--green-light);
-    border: none;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-family: "EB Garamond", serif;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-}
+/* NAVBAR */
 #navbar {
     position: fixed;
     bottom: 0;
@@ -94,6 +66,7 @@ button {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 10000;
 }
 
 #navbar button {
@@ -104,7 +77,118 @@ button {
     font-family: "EB Garamond", serif;
 }
 
-#navbar.hidden {
-    display: none;
+/* Input boxes */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: var(--text-dark);
 }
 
+input::placeholder {
+    color: var(--placeholder);
+}
+
+/* Standard buttons */
+button {
+    background-color: var(--green-light);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: "EB Garamond", serif;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Wide buttons (QR + coupon buttons) */
+.wide-btn {
+    width: 90%;
+    margin: 10px auto;
+    padding: 14px;
+    font-size: 18px;
+    display: block;
+}
+
+/* QR placeholder box */
+.box.qr-placeholder {
+    width: 90%;
+    height: 120px;
+    background: black;
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+/* Discount section title */
+.section-title {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "EB Garamond", serif;
+}
+
+/* DISCOUNT GRID */
+.discount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+/* Discount buttons */
+.discount-btn {
+    background: var(--green-mid);
+    color: white;
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 13px; /* slightly smaller */
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: normal;
+}
+
+.discount-btn,
+.discount-btn:hover,
+.discount-btn:active {
+    background-color: var(--green-mid) !important;
+}
+
+/* --- POPUP OVERLAY --- */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup container */
+.popup {
+    background: white;
+    padding: 24px;
+    width: 85%;
+    max-width: 360px;
+    border-radius: 14px;
+    text-align: center;
+    font-family: "Lora", serif;
+    color: var(--text-dark);
+}
+
+/* Popup buttons */
+.popup button {
+    width: 45%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+}
