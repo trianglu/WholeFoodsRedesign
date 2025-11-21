@@ -46,11 +46,14 @@ fetch('data.json')
     const productPrice = document.createElement('p');
     productPrice.textContent = '$' + product.price;
 
-    const addToCartButton = document.createElement('button');
-    addToCartButton.textContent = 'Add to List';
+    const addToListButton = document.createElement('button');
+    addToListButton.textContent = 'Add to List';
+
+    const viewItemButton = document.createElement('button');
+    viewItemButton.textContent = 'View Item';
 
     // Add a click event listener to the button
-    addToCartButton.addEventListener('click', () => {
+    addToListButton.addEventListener('click', () => {
       // Add the product to the selectedProducts array
       selectedProducts.push(product);
 
@@ -67,7 +70,8 @@ fetch('data.json')
     productCard.appendChild(productImage);
     productCard.appendChild(productName);
     productCard.appendChild(productPrice);
-    productCard.appendChild(addToCartButton);
+    productCard.appendChild(addToListButton);
+    productCard.appendChild(viewItemButton);
 
     // Add the product card to the container
     productContainer.appendChild(productCard);
