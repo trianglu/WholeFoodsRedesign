@@ -81,4 +81,66 @@ fetch('data.json')
   const productContainerElement = document.getElementById('product-container');
   productContainerElement.appendChild(productContainer);
 })
+
 .catch(error => console.error('Error fetching data:', error));
+
+let selectedCoupon = "";
+
+function openPopup(name) {
+  selectedCoupon = name;
+  document.getElementById('popup-title').innerText = name;
+  document.getElementById('overlay').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('overlay').style.display = 'none';
+}
+
+function saveCoupon() {
+    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+  
+    if (!saved.includes(selectedCoupon)) {
+      saved.push(selectedCoupon);
+    }
+  
+    localStorage.setItem("coupons", JSON.stringify(saved));
+  
+    // close the popup
+    closePopup();
+  
+    // redirect to coupons page
+    window.location.href = "coupons.html";
+  }
+  
+  function loadCoupons() {
+    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+    const list = document.getElementById("saved-coupons");
+  
+    if (!list) return;
+  
+    list.innerHTML = ""; 
+  
+    saved.forEach((coupon, index) => {
+      let li = document.createElement("li");
+      li.classList.add("coupon-item");
+  
+      li.innerHTML = `
+        ${coupon}
+        <button class="remove-btn" onclick="removeCoupon(${index})">✖</button>
+      `;
+  
+      list.appendChild(li);
+    });
+  }
+  
+  // load automatically IF we are on coupons page
+  document.addEventListener("DOMContentLoaded", loadCoupons);
+ 
+  function removeCoupon(index) {
+    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+  
+    saved.splice(index, 1);
+    localStorage.setItem("coupons", JSON.stringify(saved));
+  
+    loadCoupons();
+  }
