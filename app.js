@@ -74,8 +74,8 @@ function renderProducts(productsToRender, highlight = '') {
     const viewItemButton = document.createElement('button');
     viewItemButton.textContent = 'View Item';
     viewItemButton.addEventListener('click', () => {
-      openPopup(product.name);
-    });
+        window.location.href = `product-view.html?name=${encodeURIComponent(product.name)}`;
+      });      
 
     productCard.appendChild(productImage);
     productCard.appendChild(productName);

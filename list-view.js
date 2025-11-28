@@ -32,7 +32,7 @@ function renderList() {
       <img src="${product.image}" alt="${product.name}">
       <h3>${product.name}</h3>
       <p>$${product.price}</p>
-      <button class="remove-item-btn" onclick="removeItem(${index})">Remove</button>
+      <button class="remove-item-btn" onclick="openRemovePopup(${index})">Remove</button>
     `;
   
     container.appendChild(card);
@@ -56,3 +56,34 @@ function goBack() {
 }
 
 renderList();
+
+// Open the confirmation popup
+function openRemovePopup(index) {
+  removeIndex = index;
+  const popup = document.getElementById("remove-popup");
+  popup.style.display = "flex";
+}
+
+// Close popup without removing
+function closeRemovePopup() {
+  removeIndex = null;
+  const popup = document.getElementById("remove-popup");
+  popup.style.display = "none";
+}
+
+// Confirm removal
+function confirmRemove() {
+  if (removeIndex !== null) {
+    // Remove the item
+    items.splice(removeIndex, 1);
+
+    // Save updated list
+    allLists[listName] = items;
+    localStorage.setItem("userLists", JSON.stringify(allLists));
+
+    // Refresh the list UI
+    renderList();
+  }
+
+  closeRemovePopup();
+}
