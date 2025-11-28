@@ -1,21 +1,12 @@
-// Get ?list=NAME from the URL
 const params = new URLSearchParams(window.location.search);
 const listName = params.get("list");
 let removeIndex = null;
 
-// Update the title
 document.getElementById("list-title").textContent = listName;
-
-// Load all saved lists
 let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
-
-// This list’s items
 let items = allLists[listName] || [];
-
-// Where products will show
 const container = document.getElementById("list-items");
 
-// Render each product
 function renderList() {
   container.innerHTML = "";
 
@@ -41,49 +32,90 @@ function renderList() {
 
 function removeItem(index) {
     items.splice(index, 1);
-  
-    // Update localStorage
     allLists[listName] = items;
     localStorage.setItem("userLists", JSON.stringify(allLists));
   
-    // Re-render list
     renderList();
 }  
 
-// Allow user to go back
 function goBack() {
   window.location.href = "lists.html";
 }
 
 renderList();
 
-// Open the confirmation popup
 function openRemovePopup(index) {
   removeIndex = index;
   const popup = document.getElementById("remove-popup");
   popup.style.display = "flex";
 }
 
-// Close popup without removing
 function closeRemovePopup() {
   removeIndex = null;
   const popup = document.getElementById("remove-popup");
   popup.style.display = "none";
 }
 
-// Confirm removal
 function confirmRemove() {
   if (removeIndex !== null) {
-    // Remove the item
     items.splice(removeIndex, 1);
-
-    // Save updated list
     allLists[listName] = items;
     localStorage.setItem("userLists", JSON.stringify(allLists));
 
-    // Refresh the list UI
     renderList();
   }
 
   closeRemovePopup();
+}
+
+const deleteListBtn = document.getElementById('delete-list-btn');
+const deleteListPopup = document.getElementById('delete-list-popup');
+const confirmDeleteListBtn = document.getElementById('confirm-delete-list-btn');
+const cancelDeleteListBtn = document.getElementById('cancel-delete-list-btn');
+
+function openDeleteListPopup() {
+  if (!listName) return;
+  deleteListPopup.style.display = 'flex';
+}
+
+function closeDeleteListPopup() {
+  deleteListPopup.style.display = 'none';
+}
+
+function confirmDeleteList() {
+  if (!listName) {
+    closeDeleteListPopup();
+    return;
+  }
+
+  let allLists = JSON.parse(localStorage.getItem('userLists')) || {};
+
+  if (!allLists[listName]) {
+    closeDeleteListPopup();
+    window.location.href = 'lists.html';
+    return;
+  }
+
+  delete allLists[listName];
+  localStorage.setItem('userLists', JSON.stringify(allLists));
+
+  closeDeleteListPopup();
+
+  window.location.href = 'lists.html';
+}
+
+if (deleteListBtn) deleteListBtn.addEventListener('click', openDeleteListPopup);
+if (confirmDeleteListBtn) confirmDeleteListBtn.addEventListener('click', confirmDeleteList);
+if (cancelDeleteListBtn) cancelDeleteListBtn.addEventListener('click', closeDeleteListPopup);
+
+const checkoutBtn = document.getElementById("checkout-btn");
+
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", () => {
+    let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+    let items = allLists[listName] || [];
+
+    localStorage.setItem("cart", JSON.stringify(items));
+    window.location.href = "checkout.html";
+  });
 }

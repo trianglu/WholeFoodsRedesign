@@ -17,10 +17,8 @@
         <div class="list-buttons">
           <button onclick="openList('Favorites')">Favorites</button>
           <button onclick="openList('Most Recurring')">Most Recurring</button>
-          <button onclick="openList('Grocery List')">Grocery List</button>
-          <button onclick="openList('Snacks')">Snacks</button>
-          <button onclick="openList('new')">Add List</button>
-        </div>        
+          <button onclick="openAddListPopup()">Add List</button>
+        </div>
 
     </div>
 
@@ -30,6 +28,27 @@
         <a href="products.html"><button><img src="assets/products.png"></button></a>
         <a href="lists.html"><button><img src="assets/list.png"></button></a>
       </div>
+
+      <div id="add-list-popup" class="popup-overlay">
+        <div class="popup-box">
+          <h2>Create New List</h2>
+
+          <input 
+            id="new-list-name" 
+            type="text" 
+            placeholder="Enter list name..."
+            class="text-input"
+          />
+
+          <div class="popup-buttons">
+            <button class="confirm-btn" onclick="createNewList()">Create</button>
+            <button class="cancel-btn" onclick="closeAddListPopup()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      
+
       <script src="app.js"></script>
   </body>
 </html>
