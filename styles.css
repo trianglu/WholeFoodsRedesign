@@ -172,7 +172,53 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .popup-box {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .popup-box button {
+    margin: 8px 0;
+  }
+  
+  .close-btn {
+    background: #ccc;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  
+  .list-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 5px;
+  }  
 
 /* Popup container */
 .popup {
@@ -335,3 +381,132 @@ button {
     margin-left: 10px;
     cursor: pointer;
   }
+
+  .highlight {
+    background: #ffea70; /* or yellow */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .product-card { /* minimal styles so cards display sensibly */
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 8px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#list-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+.list-item-card,
+  .product-card {
+    width: 150px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+  
+.list-item-card img,
+  .product-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; /* crops nicely */
+    border-radius: 8px;
+}
+  
+.list-item-card h3,
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0 6px;
+}
+  
+.list-item-card p,
+  .product-card p {
+    margin: 0;
+    font-weight: bold;
+    color: #4caf50;
+}
+  
+.back-btn {
+    margin: 20px;
+    padding: 10px 14px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.remove-item-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+  
+.remove-item-btn:hover {
+    background: #e63939;
+}
+
+/* Remove confirmation popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+  
+.popup-box {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.confirm-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    width: 45%;
+}
+  
+.cancel-btn {
+    background: #ccc;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    width: 45%;
+}  

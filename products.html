@@ -2,31 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link rel="stylesheet" href="styles.css">
-    
   </head>
+
   <body>
     <div id="app">
-          <div id="screen-products">
-            <img src="assets/WholefoodsGrey.webp" class="logo" alt="Whole Foods Logo">
-            <h1>Products</h1>
-          </div>
 
-          <main>
-            <div id="product-container" class="product-container">
-              <ul id="product-list"></ul>
-            </div>
-          </main>
+      <div id="screen-products">
+        <img src="assets/WholefoodsGrey.webp" class="logo" alt="Whole Foods Logo">
+
+        <form id="search-form" onsubmit="return false;">
+          <input id="search-input" type="text" placeholder="Search products..." />
+        </form>
+
+        <h1>Products</h1>
+      </div>
+
+      <main>
+        <div id="product-container"></div>
+
+        <ul id="product-list"></ul>
+      </main>
     </div>
 
     <div id="navbar">
-        <a href="home.html"><button><img src="assets/home.png"></button></a>
-        <a href="profile.html"><button><img src="assets/profile.png"></button></a>
-        <a href="products.html"><button><img src="assets/products.png"></button></a>
-        <a href="lists.html"><button><img src="assets/list.png"></button></a>
+      <a href="home.html"><button><img src="assets/home.png"></button></a>
+      <a href="profile.html"><button><img src="assets/profile.png"></button></a>
+      <a href="products.html"><button><img src="assets/products.png"></button></a>
+      <a href="lists.html"><button><img src="assets/list.png"></button></a>
+    </div>
+
+    <div id="list-popup" class="popup-overlay">
+      <div class="popup-box">
+        <h2 id="list-popup-title">Add to List</h2>
+    
+        <div id="list-options">
+        </div>
+    
+        <button onclick="closeListPopup()" class="close-btn">Cancel</button>
       </div>
-      <script src="app.js"></script>
+    </div>
+    
+    <div id="confirm-popup" class="overlay">
+      <div class="popup-box">
+        <h2 id="confirm-message"></h2>
+        <button onclick="closeConfirmPopup()" class="close-btn">OK</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>

@@ -1,33 +1,36 @@
-function login() {
-    window.location.href = "home.html";
-}
-function openPopup(couponName) {
-    document.getElementById("popup-title").innerText = couponName;
-    document.getElementById("overlay").style.display = "flex";
-  }
+let allProducts = [];
+const selectedProducts = [];
 
-  function closePopup() {
-    document.getElementById("overlay").style.display = "none";
-  }
+const productContainerElement = document.getElementById('product-container');
+const productList = document.getElementById('product-list');
+const searchInput = document.getElementById('search-input');
 
-  function saveCoupon() {
-    alert("Coupon saved! (you can connect this to localStorage later)");
-    closePopup();
-  }
+if (!productContainerElement) console.error('Missing #product-container element');
+if (!productList) console.error('Missing #product-list element');
+if (!searchInput) console.error('Missing #search-input element');
 
-  // Fetch the data
 fetch('data.json')
-.then(response => response.json())
-.then(data => {
-  // Create a container for the products
-  const productContainer = document.createElement('div');
-  productContainer.classList.add('product-container');
+  .then(response => response.json())
+  .then(data => {
+    allProducts = data.products || [];
+    console.log('Loaded products:', allProducts.length);
+    renderProducts(allProducts);
+  })
+  .catch(error => {
+    console.error('Error fetching data.json:', error);
+  });
 
-  // Create an empty array to store the selected products
-  const selectedProducts = [];
+function renderProducts(productsToRender, highlight = '') {
+  productContainerElement.innerHTML = '';
 
-  // Loop through the data and create a product card for each item
-  data.products.forEach(product => {
+  if (!productsToRender || productsToRender.length === 0) {
+    const emptyMsg = document.createElement('p');
+    emptyMsg.textContent = 'No products to show.';
+    productContainerElement.appendChild(emptyMsg);
+    return;
+  }
+
+  productsToRender.forEach(product => {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
@@ -41,30 +44,37 @@ fetch('data.json')
     productImage.appendChild(productImageElement);
 
     const productName = document.createElement('h3');
-    productName.textContent = product.name;
+    if (highlight) {
+      const nameLower = product.name.toLowerCase();
+      const q = highlight.toLowerCase();
+      const idx = nameLower.indexOf(q);
+      if (idx !== -1) {
+        const before = product.name.substring(0, idx);
+        const match = product.name.substring(idx, idx + q.length);
+        const after = product.name.substring(idx + q.length);
+        productName.innerHTML = `${escapeHtml(before)}<span class="highlight">${escapeHtml(match)}</span>${escapeHtml(after)}`;
+      } else {
+        productName.textContent = product.name;
+      }
+    } else {
+      productName.textContent = product.name;
+    }
 
     const productPrice = document.createElement('p');
     productPrice.textContent = '$' + product.price;
 
     const addToListButton = document.createElement('button');
-    addToListButton.textContent = 'Add to List';
+    addToListButton.textContent = 'Add to List';      
+    addToListButton.addEventListener('click', () => {
+        openListPopup(product);
+        selectedProducts.push(product);
+        refreshSelectedList();
+    });
 
     const viewItemButton = document.createElement('button');
     viewItemButton.textContent = 'View Item';
-
-    // Add a click event listener to the button
-    addToListButton.addEventListener('click', () => {
-      // Add the product to the selectedProducts array
-      selectedProducts.push(product);
-
-      // Display the selected products in a list
-      const productList = document.getElementById('product-list');
-      productList.innerHTML = '';
-      selectedProducts.forEach(product => {
-        const listItem = document.createElement('li');
-        listItem.textContent = product.name;
-        productList.appendChild(listItem);
-      });
+    viewItemButton.addEventListener('click', () => {
+      openPopup(product.name);
     });
 
     productCard.appendChild(productImage);
@@ -73,74 +83,87 @@ fetch('data.json')
     productCard.appendChild(addToListButton);
     productCard.appendChild(viewItemButton);
 
-    // Add the product card to the container
-    productContainer.appendChild(productCard);
+    productContainerElement.appendChild(productCard);
+  });
+}
+
+function refreshSelectedList() {
+  if (!productList) return;
+  productList.innerHTML = '';
+  selectedProducts.forEach(product => {
+    const li = document.createElement('li');
+    li.textContent = product.name;
+    productList.appendChild(li);
+  });
+}
+
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.trim();
+  if (query === '') {
+    renderProducts(allProducts);
+    return;
+  }
+
+  const filtered = allProducts.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+  renderProducts(filtered, query);
+});
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+let currentProduct = null;
+
+const availableLists = ["Favorites", "Most Recurring", "Grocery List", "Snacks"];
+
+function openListPopup(product) {
+  currentProduct = product;
+
+  const listOptions = document.getElementById("list-options");
+  listOptions.innerHTML = "";
+
+  availableLists.forEach(listName => {
+    const btn = document.createElement("button");
+    btn.classList.add("list-btn");
+    btn.textContent = listName;
+    btn.onclick = () => addProductToList(listName);
+    listOptions.appendChild(btn);
   });
 
-  // Add the product container to the page
-  const productContainerElement = document.getElementById('product-container');
-  productContainerElement.appendChild(productContainer);
-})
-
-.catch(error => console.error('Error fetching data:', error));
-
-let selectedCoupon = "";
-
-function openPopup(name) {
-  selectedCoupon = name;
-  document.getElementById('popup-title').innerText = name;
-  document.getElementById('overlay').style.display = 'flex';
+  document.getElementById("list-popup").style.display = "flex";
 }
 
-function closePopup() {
-  document.getElementById('overlay').style.display = 'none';
+function closeListPopup() {
+  document.getElementById("list-popup").style.display = "none";
 }
 
-function saveCoupon() {
-    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
-  
-    if (!saved.includes(selectedCoupon)) {
-      saved.push(selectedCoupon);
-    }
-  
-    localStorage.setItem("coupons", JSON.stringify(saved));
-  
-    // close the popup
-    closePopup();
-  
-    // redirect to coupons page
-    window.location.href = "coupons.html";
+function addProductToList(listName) {
+  let lists = JSON.parse(localStorage.getItem("userLists")) || {};
+
+  if (!lists[listName]) {
+    lists[listName] = [];
   }
-  
-  function loadCoupons() {
-    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
-    const list = document.getElementById("saved-coupons");
-  
-    if (!list) return;
-  
-    list.innerHTML = ""; 
-  
-    saved.forEach((coupon, index) => {
-      let li = document.createElement("li");
-      li.classList.add("coupon-item");
-  
-      li.innerHTML = `
-        ${coupon}
-        <button class="remove-btn" onclick="removeCoupon(${index})">✖</button>
-      `;
-  
-      list.appendChild(li);
-    });
-  }
-  
-  // load automatically IF we are on coupons page
-  document.addEventListener("DOMContentLoaded", loadCoupons);
- 
-  function removeCoupon(index) {
-    let saved = JSON.parse(localStorage.getItem("coupons")) || [];
-  
-    saved.splice(index, 1);
-    localStorage.setItem("coupons", JSON.stringify(saved));
-  
-    loadCoupons();
-  }
+
+  lists[listName].push(currentProduct);
+  localStorage.setItem("userLists", JSON.stringify(lists));
+
+  closeListPopup();
+  openConfirmPopup(listName);
+}
+
+function openConfirmPopup(listName) {
+  document.getElementById("confirm-message").textContent =
+    `Added to "${listName}"!`;
+  document.getElementById("confirm-popup").style.display = "flex";
+}
+
+function closeConfirmPopup() {
+  document.getElementById("confirm-popup").style.display = "none";
+}
+
+function openList(listName) {
+    window.location.href = `list-view.html?list=${encodeURIComponent(listName)}`;
+}
