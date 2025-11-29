@@ -1,3 +1,7 @@
+function login() {
+  window.location.href = "home.html";
+}
+
 let allProducts = [];
 const selectedProducts = [];
 let listToDelete = null;
@@ -241,3 +245,4 @@ function renderLists() {
     container.appendChild(row);
   });
 }
+
