@@ -1,7 +1,82 @@
 function login() {
   window.location.href = "home.html";
 }
+//coupon stuff
+let selectedCoupon = "";
 
+function openPopup(name) {
+  selectedCoupon = name;
+
+  const titleEl = document.getElementById("popup-title");
+  const overlayEl = document.getElementById("overlay");
+
+  if (titleEl) titleEl.innerText = name;
+  if (overlayEl) overlayEl.style.display = "flex";
+}
+
+function closePopup() {
+  const overlayEl = document.getElementById("overlay");
+  if (overlayEl) overlayEl.style.display = "none";
+}
+
+function saveCoupon() {
+  let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+
+  if (!saved.includes(selectedCoupon)) {
+    saved.push(selectedCoupon);
+  }
+
+  localStorage.setItem("coupons", JSON.stringify(saved));
+
+  closePopup();
+
+  // go to coupons page after saving
+  window.location.href = "coupons.html";
+}
+
+function loadCoupons() {
+  const list = document.getElementById("saved-coupons");
+  if (!list) return; // not on coupons page
+
+  let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+  list.innerHTML = "";
+
+  saved.forEach(coupon => {
+    const li = document.createElement("li");
+    li.classList.add("coupon-item");
+
+    // coupon text
+    const span = document.createElement("span");
+    span.textContent = coupon;
+
+    // REMOVE BUTTON
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-btn");
+    removeBtn.textContent = "✖";
+
+    removeBtn.addEventListener("click", () => {
+      deleteCoupon(coupon);
+    });
+
+    li.appendChild(span);
+    li.appendChild(removeBtn);
+    list.appendChild(li);
+  });
+}
+function deleteCoupon(name) {
+  let saved = JSON.parse(localStorage.getItem("coupons")) || [];
+
+  saved = saved.filter(c => c !== name);
+
+  localStorage.setItem("coupons", JSON.stringify(saved));
+  loadCoupons(); // refresh the screen instantly
+}
+
+// run when page loads
+document.addEventListener("DOMContentLoaded", loadCoupons);
+
+
+//products stuff
 let allProducts = [];
 const selectedProducts = [];
 let listToDelete = null;
