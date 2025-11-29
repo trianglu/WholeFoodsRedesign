@@ -395,6 +395,7 @@ button {
     width: 200px;
     display: inline-block;
     vertical-align: top;
+    color: var(--green-mid);
   }
   .product-image img {
     width: 100%;
@@ -423,7 +424,7 @@ button {
   .product-card img {
     width: 100%;
     height: 120px;
-    object-fit: cover; /* crops nicely */
+    object-fit: cover;
     border-radius: 8px;
 }
   
