@@ -41,3 +41,7 @@ function clearCart() {
 }
 
 renderCart();
+
+function goBack() {
+    window.location.href = "lists.html";
+}
