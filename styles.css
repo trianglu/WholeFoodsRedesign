@@ -418,6 +418,7 @@ button {
     padding: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     text-align: center;
+    color: var(--green-mid);
 }
   
 .list-item-card img,
@@ -487,6 +488,7 @@ button {
     width: 300px;
     border-radius: 10px;
     text-align: center;
+    color: var(--green-mid);
 }
   
 .popup-buttons {
@@ -580,6 +582,7 @@ button {
     padding: 10px;
     margin: 12px 0;
     border-radius: 10px;
+    color: var(--green-mid);
 }
   
 .cart-item img {
