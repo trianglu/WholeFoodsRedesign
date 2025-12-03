@@ -14,12 +14,13 @@
             <h1>Lists</h1>
         </div>
 
-        <div class="list-buttons">
-          <button onclick="openList('Favorites')">Favorites</button>
-          <button onclick="openList('Most Recurring')">Most Recurring</button>
-          <button onclick="openAddListPopup()">Add List</button>
-        </div>
-
+    <div id="lists-container" class="list-buttons">
+        <button onclick="openList('Favorites')">Favorites</button>
+        <button onclick="openList('Most Recurring')">Most Recurring</button>
+    </div>
+    <div class="list-buttons">
+      <button onclick="openAddListPopup()">Add List</button>
+    </div>
     </div>
 
     <div id="navbar">
@@ -48,7 +49,11 @@
       </div>
 
       
-
+      <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderLists();
+  });
+</script>
       <script src="app.js"></script>
   </body>
 </html>
