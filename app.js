@@ -205,7 +205,12 @@ function openListPopup(product) {
   const listOptions = document.getElementById("list-options");
   listOptions.innerHTML = "";
 
-  availableLists.forEach(listName => {
+  // Load all lists from storage
+  const allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+  const defaultLists = ["Favorites", "Most Recurring"];
+
+  // Always show default lists first
+  defaultLists.forEach(listName => {
     const btn = document.createElement("button");
     btn.classList.add("list-btn");
     btn.textContent = listName;
@@ -213,6 +218,18 @@ function openListPopup(product) {
     listOptions.appendChild(btn);
   });
 
+  // Then show any user-created lists
+  Object.keys(allLists).forEach(listName => {
+    if (!defaultLists.includes(listName)) {
+      const btn = document.createElement("button");
+      btn.classList.add("list-btn");
+      btn.textContent = listName;
+      btn.onclick = () => addProductToList(listName);
+      listOptions.appendChild(btn);
+    }
+  });
+
+  // Finally show the popup
   document.getElementById("list-popup").style.display = "flex";
 }
 
@@ -259,27 +276,31 @@ function closeAddListPopup() {
     document.getElementById("new-list-name").value = "";
 }
   
-  function createNewList() {
-    const nameInput = document.getElementById("new-list-name");
-    const newListName = nameInput.value.trim();
-  
-    if (newListName === "") {
-      alert("List name cannot be empty.");
-      return;
-    }
-  
-    let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
-  
-    if (allLists[newListName]) {
-      alert("A list with that name already exists.");
-      return;
-    }
+function createNewList() {
+  const nameInput = document.getElementById("new-list-name");
+  const newListName = nameInput.value.trim();
 
-    allLists[newListName] = [];
-    localStorage.setItem("userLists", JSON.stringify(allLists));
-    addListButtonToPage(newListName);
-    closeAddListPopup();
+  if (newListName === "") {
+    alert("List name cannot be empty.");
+    return;
+  }
+
+  let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+
+  if (allLists[newListName]) {
+    alert("A list with that name already exists.");
+    return;
+  }
+
+  allLists[newListName] = [];
+  localStorage.setItem("userLists", JSON.stringify(allLists));
+
+  addListButtonToPage(newListName); // updates UI immediately
+  closeAddListPopup();
+
+  console.log("✅ Created new list:", newListName);
 }
+
   
 function addListButtonToPage(listName) {
     const container = document.querySelector(".list-buttons");
@@ -292,32 +313,51 @@ function addListButtonToPage(listName) {
 }
 
 function renderLists() {
-  let container = document.getElementById("lists-container");
-  let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+  const container = document.getElementById("lists-container");
+  if (!container) return;
+
+  const allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+  const defaultLists = ["Favorites", "Most Recurring"];
 
   container.innerHTML = "";
 
+  // Always show default lists first
+  defaultLists.forEach(listName => {
+    const btn = document.createElement("button");
+    btn.className = "list-btn";
+    btn.textContent = listName;
+    btn.addEventListener("click", () => openList(listName));
+    container.appendChild(btn);
+  });
+
+  // Then show custom lists
   Object.keys(allLists).forEach(listName => {
-    const row = document.createElement("div");
-    row.classList.add("list-row");
-
-    const openBtn = document.createElement("button");
-    openBtn.className = "list-btn";
-    openBtn.textContent = listName;
-    openBtn.addEventListener("click", () => openList(listName));
-
-    row.appendChild(openBtn);
-
     if (!defaultLists.includes(listName)) {
-      const delBtn = document.createElement("button");
-      delBtn.className = "delete-list-btn";
-      delBtn.textContent = "🗑";
-      delBtn.addEventListener("click", () => openDeleteListPopup(listName));
-
-      row.appendChild(delBtn);
+      const btn = document.createElement("button");
+      btn.className = "list-btn";
+      btn.textContent = listName;
+      btn.addEventListener("click", () => openList(listName));
+      container.appendChild(btn);
     }
-
-    container.appendChild(row);
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  // This ensures the Lists page always shows what’s saved
+  const container = document.querySelector(".list-buttons");
+  if (container) {
+    const allLists = JSON.parse(localStorage.getItem("userLists")) || {};
+    const defaultLists = ["Favorites", "Most Recurring"];
+
+    // Clear out any old duplicates
+    const existingButtons = container.querySelectorAll("button:not(:last-child)");
+    existingButtons.forEach(btn => btn.remove());
+
+    // Render all stored lists as buttons
+    Object.keys(allLists).forEach(listName => {
+      if (!defaultLists.includes(listName)) {
+        addListButtonToPage(listName);
+      }
+    });
+  }
+});
