@@ -242,63 +242,101 @@ button {
 
 /* PROFILE SCREEN */
 #profile-container {
-    padding: 20px;
-    margin-top: 10px;
+    padding-top: 40px;
+    padding-bottom: 120px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
 }
-  
+
+/* Profile Header Card */
 .profile-header {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.07);
+    padding: 30px 20px;
+    margin: 0 auto 30px;
+    width: 85%;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
 }
-  
+
+/* Profile Image */
 .profile-photo {
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ccc;
+    border: 3px solid var(--green-light);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    margin-bottom: 10px;
 }
-  
+
+/* Greeting header */
 .profile-header h2 {
-    margin-top: 10px;
-    font-size: 22px; /* original */
+    font-size: 28px;
+    margin-top: 12px;
+    font-weight: 700;
+    color: white;
 }
-  
+
+/* Profile Details (rows) */
 .profile-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    margin: 10px 0;
-    font-family: "Lora", serif;
-    color: black;
+    background: rgba(255,255,255,0.08);
+    padding: 16px 20px;
+    margin: 14px auto;
+    width: 85%;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    color: white;
+    font-size: 18px;
 }
 
+/* Left Label */
 .profile-section .label {
     font-weight: 600;
-    background-color: #e0e0e0; 
-    padding: 8px 12px;
-    border-radius: 8px;
-    min-width: 120px; 
-    text-align: center;
-}
-  
-.profile-section .value {
-    text-align: right;
-    flex: 1;
-    margin-left: 10px;
-    color: white;
-}
-  
-.profile-section h3 {
-    margin: 0 0 5px;
-}
-  
-.clickable .label {
-    background-color: #e0e0e0; 
-    cursor: pointer;
+    color: #e9e9e9;
+    font-size: 18px;
+    background: none;
+    padding: 0;
 }
 
+/* Right Value */
+.profile-section .value {
+    text-align: right;
+    color: #dcdcdc;
+    font-size: 18px;
+}
+
+/* Settings Buttons Section */
+.profile-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-buttons button {
+    width: 80%;
+    padding: 14px 20px;
+    background: var(--green-light);
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
+    font-family: "EB Garamond", serif;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    transition: 0.15s ease-in-out;
+}
+
+.profile-buttons button:hover {
+    background: var(--green-mid);
+    transform: translateY(-2px);
+}
 /*List Buttons*/
 .list-buttons {
     display: flex;
@@ -593,7 +631,7 @@ button {
     height: 80px;
     border-radius: 10px;
     margin-right: 15px;
-<<<<<<< HEAD
+<<<<<< HEAD
 }  
 
 /* Profile header container */
@@ -623,6 +661,8 @@ button {
 
 =======
 }
+
+
 /* ---------------------------- */
 /* TYPOGRAPHY UPGRADE — BIGGER */
 /* ---------------------------- */
@@ -670,3 +710,78 @@ button,
 .profile-section .value {
     font-size: 18px;
 }
+<<<<<<< HEAD
+>>>>>>> 952de5e (UI improvements (Text Bigger))
+=======
+/* ---------------------------- */
+/*  UI ENHANCEMENTS */
+/* ---------------------------- */
+
+/* Smooth gradient background for modern premium look */
+body {
+    background: linear-gradient(180deg, #004e36 0%, #006f46 100%);
+}
+
+/* Add spacing to center content vertically better */
+.home-screen {
+    padding-top: 60px;
+}
+
+/* Modern button styling */
+button,
+.wide-btn {
+    background-color: var(--green-light);
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    margin: 12px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+button:hover,
+.wide-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+}
+
+/* Make QR placeholder look like a real card */
+.qr-placeholder {
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+}
+
+/* Upgrade discount cards */
+.discount-btn {
+    height: 80px; 
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    transition: transform 0.12s ease;
+}
+
+.discount-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Improve section title visuals */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    letter-spacing: 0.3px;
+    color: white;
+}
+
+/* Make logo spacing cleaner */
+.logo {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+>>>>>>> 577af41 (UI enhancements)
