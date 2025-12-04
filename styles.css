@@ -148,7 +148,7 @@ button {
     color: white;
     border-radius: 10px;
     padding: 6px;
-    font-size: 13px; /* slightly smaller */
+    font-size: 13px; /* original */
     height: 60px; 
     display: flex;
     justify-content: center;
@@ -189,28 +189,28 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 999;
-  }
+}
   
-  .popup-box {
+.popup-box {
     background: white;
     padding: 20px;
     width: 300px;
     border-radius: 10px;
     text-align: center;
-  }
+}
   
-  .popup-box button {
+.popup-box button {
     margin: 8px 0;
-  }
+}
   
-  .close-btn {
+.close-btn {
     background: #ccc;
     border: none;
     padding: 8px 12px;
     border-radius: 6px;
-  }
+}
   
-  .list-btn {
+.list-btn {
     background: #4CAF50;
     color: white;
     border: none;
@@ -218,7 +218,7 @@ button {
     border-radius: 6px;
     width: 100%;
     margin-top: 5px;
-  }  
+}  
 
 /* Popup container */
 .popup {
@@ -261,7 +261,7 @@ button {
   
 .profile-header h2 {
     margin-top: 10px;
-    font-size: 22px;
+    font-size: 22px; /* original */
 }
   
 .profile-section {
@@ -316,7 +316,7 @@ button {
     border: none;
     border-radius: 8px;
     font-family: "EB Garamond", serif;
-    font-size: 16px;
+    font-size: 16px; /* original */
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -346,7 +346,6 @@ button {
 .product-card {
     margin-bottom: 50px;
     flex-basis: calc(33.33% - 20px);
-
 }
 
 #saved-coupons {
@@ -358,6 +357,7 @@ button {
     padding: 0;
     list-style: none;
 }
+
 .coupon-item {
     background: var(--green-mid);
     color: white;
@@ -371,7 +371,8 @@ button {
     text-align: center;
     white-space: normal;
 }
-  .remove-btn {
+
+.remove-btn {
     background: red;
     border: none;
     color: white;
@@ -380,15 +381,16 @@ button {
     border-radius: 6px;
     margin-left: 10px;
     cursor: pointer;
-  }
+}
 
-  .highlight {
+.highlight {
     background: #ffea70;
     padding: 2px 4px;
     border-radius: 4px;
     font-weight: 600;
-  }
-  .product-card {
+}
+
+.product-card {
     border: 1px solid #ddd;
     padding: 10px;
     margin: 8px;
@@ -396,8 +398,9 @@ button {
     display: inline-block;
     vertical-align: top;
     color: var(--green-mid);
-  }
-  .product-image img {
+}
+
+.product-image img {
     width: 100%;
     height: auto;
     display: block;
@@ -408,10 +411,10 @@ button {
     flex-wrap: wrap;
     gap: 16px;
     padding: 20px;
-  }
-  
+}
+
 .list-item-card,
-  .product-card {
+.product-card {
     width: 150px;
     background: #fff;
     border-radius: 10px;
@@ -420,28 +423,28 @@ button {
     text-align: center;
     color: var(--green-mid);
 }
-  
+
 .list-item-card img,
-  .product-card img {
+.product-card img {
     width: 100%;
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
 }
-  
+
 .list-item-card h3,
-  .product-card h3 {
+.product-card h3 {
     font-size: 16px;
     margin: 10px 0 6px;
 }
-  
+
 .list-item-card p,
-  .product-card p {
+.product-card p {
     margin: 0;
     font-weight: bold;
     color: #4caf50;
 }
-  
+
 .back-btn {
     margin: 20px;
     padding: 10px 14px;
@@ -462,7 +465,7 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
-  
+
 .remove-item-btn:hover {
     background: #e63939;
 }
@@ -590,6 +593,7 @@ button {
     height: 80px;
     border-radius: 10px;
     margin-right: 15px;
+<<<<<<< HEAD
 }  
 
 /* Profile header container */
@@ -617,3 +621,55 @@ button {
     align-self: center;
   }
 
+=======
+}
+
+
+/* ---------------------------- */
+/* TYPOGRAPHY UPGRADE — BIGGER */
+/* ---------------------------- */
+
+body {
+    font-size: 18px; 
+    line-height: 1.5;
+}
+
+/* Headings */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+/* Buttons */
+button,
+.wide-btn,
+.list-buttons button {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Discount buttons */
+.discount-btn {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Profile screen text */
+.profile-header h2 {
+    font-size: 26px;
+}
+
+.profile-section .label,
+.profile-section .value {
+    font-size: 18px;
+}
+>>>>>>> 952de5e (UI improvements (Text Bigger))
