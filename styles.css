@@ -609,3 +609,11 @@ button {
     border: 3px solid #e0e0e0; 
     margin-bottom: 10px;
 }
+
+/* Checkmark image style */
+#checkmark {
+    width: 300px;
+    height: auto;
+    align-self: center;
+  }
+
