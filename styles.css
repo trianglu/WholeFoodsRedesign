@@ -787,4 +787,36 @@ button:hover,
     margin-top: 40px;
     margin-bottom: 20px;
 }
->>>>>>> 577af41 (UI enhancements)
+
+
+/* =============================== */
+/* LIST PAGE STYLING         */
+/* =============================== */
+
+.list-page {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.list-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    width: 80%;
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+}
+
+.list-card button {
+    margin: 12px 0;
+}
+
+.list-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+}
+
