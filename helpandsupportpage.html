@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific container */
+    #support-container {
+      padding: 50px;
+      background-color: var(--bg-white);
+      border-radius: 12px;
+      color: var(--text-dark);
+      margin-top: 20px;
+
+    }
+
+    #support-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--green-dark);
+    }
+ 
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      font-family: "Lora", serif;
+      color: var(--text-dark);
+    }
+
+    form input::placeholder, form textarea::placeholder {
+      color: var(--placeholder);
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    form button {
+      width: 100%;
+      background-color: var(--green-light);
+      color: var(--text-light);
+      font-size: 18px;
+      font-family: "EB Garamond", serif;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: var(--green-mid);
+    }
+
+    /* Center logo like other pages */
+    .logo {
+      width: 200px;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <a href="home.html"><img src="assets/WholefoodsGrey.webp" class="logo" alt="Whole Foods Logo"></a>
+
+    <div id="support-container">
+      <h1>Help & Support</h1>
+      <form id="help-form" onsubmit="submitForm(event)">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="navbar">
+      <a href="home.html"><button><img src="assets/home.png"></button></a>
+      <a href="profile.html"><button><img src="assets/profile.png"></button></a>
+      <a href="products.html"><button><img src="assets/products.png"></button></a>
+      <a href="lists.html"><button><img src="assets/list.png"></button></a>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const firstName = document.getElementById('first-name').value;
+      alert(`Thank you ${firstName}! Your message has been submitted.`);
+      document.getElementById('help-form').reset();
+    }
+  </script>
+</body>
+</html>
