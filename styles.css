@@ -851,4 +851,36 @@ button:hover,
   background-color: var(--green-mid);
 }
 
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+}
 
+  .qty-btn {
+    padding: 3px 8px;
+    font-size: 18px;
+}
+
+  .qty-num {
+    min-width: 20px;
+    text-align: center;
+}
+
+.qty-display {
+    display: inline-block;
+    min-width: 24px;
+    text-align: center;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+  
+  .qty-animate-plus {
+    transform: scale(1.25);
+    color: #2ecc71;
+}
+  
+.qty-animate-minus {
+    transform: scale(1.25);
+    color: #e74c3c;
+}

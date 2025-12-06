@@ -238,17 +238,32 @@ function closeListPopup() {
 }
 
 function addProductToList(listName) {
-  let lists = JSON.parse(localStorage.getItem("userLists")) || {};
+    if (!currentProduct) return;
 
-  if (!lists[listName]) {
-    lists[listName] = [];
-  }
+    let allLists = JSON.parse(localStorage.getItem("userLists")) || {};
 
-  lists[listName].push(currentProduct);
-  localStorage.setItem("userLists", JSON.stringify(lists));
+    if (!allLists[listName]) {
+        allLists[listName] = [];
+    }
 
-  closeListPopup();
-  openConfirmPopup(listName);
+    const existing = allLists[listName].find(
+        item => item.name === currentProduct.name
+    );
+
+    if (existing) {
+        existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+        allLists[listName].push({
+            name: currentProduct.name,
+            price: currentProduct.price,
+            image: currentProduct.image,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("userLists", JSON.stringify(allLists));
+    closeListPopup();
+    openConfirmPopup(listName);
 }
 
 function openConfirmPopup(listName) {

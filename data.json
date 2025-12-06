@@ -6,7 +6,8 @@
             "image": "../images/WholeMilk.png",
             "category": "Dairy",
             "stock": 50,
-            "description": "USDA Organic whole milk with 3.5% fat"
+            "description": "USDA Organic whole milk with 3.5% fat",
+            "quantity": 0
         },
         {
             "name": "Salmon Atlantic Farm Raised Portion, 6 Ounces",
@@ -14,7 +15,8 @@
             "image": "../images/Salmon.png",
             "category": "Seafood",
             "stock": 30,
-            "description": "Fresh farm-raised Atlantic salmon portion"
+            "description": "Fresh farm-raised Atlantic salmon portion",
+            "quantity": 0
         },
         {
             "name": "365 by Whole Foods Market Berry Blend, 16 OZ",
@@ -22,7 +24,8 @@
             "image": "../images/berries.png",
             "category": "Fruits",
             "stock": 40,
-            "description": "USDA organic mixed berries, frozen"
+            "description": "USDA organic mixed berries, frozen",
+            "quantity": 0
         },
         {
             "name": "365 By Whole Foods Market, Organic Original Hummus, 16 Ounces",
@@ -30,7 +33,8 @@
             "image": "../images/OrganicHummus.png",
             "category": "Condiments",
             "stock": 20,
-            "description": "USDA organic hummus, made with garbanzo beans and lemon juice"
+            "description": "USDA organic hummus, made with garbanzo beans and lemon juice",
+            "quantity": 0
         },
         {
             "name": "Organic Baby Spinach, 5 oz",
@@ -38,7 +42,8 @@
             "image": "../images/Spinach.png",
             "category": "Vegetables",
             "stock": 60,
-            "description": "USDA organic baby spinach, fresh and ready to eat"
+            "description": "USDA organic baby spinach, fresh and ready to eat",
+            "quantity": 0
         },
         {
             "name": "365 Everyday Value, Organic Extra Virgin Olive Oil 100% Mediterranean Blend, 16.9 fl oz",
@@ -46,7 +51,8 @@
             "image": "../images/ExtraVirginOliveOil.png",
             "category": "Oils",
             "stock": 10,
-            "description": "USDA organic extra virgin olive oil, cold-pressed from premium olives"
+            "description": "USDA organic extra virgin olive oil, cold-pressed from premium olives",
+            "quantity": 0
         },
         {
             "name": "Quinoa Tri Color Regenerative Organic, 16 Ounce",
@@ -54,7 +60,8 @@
             "image": "../images/Quinoa.png",
             "category": "Grains",
             "stock": 25,
-            "description": "USDA organic quinoa, rich in protein and fiber"
+            "description": "USDA organic quinoa, rich in protein and fiber",
+            "quantity": 0
         },
         {
             "name": "70% Dark Chocolate Bar, 2.8 Ounces",
@@ -62,7 +69,8 @@
             "image": "../images/DarkChocolate.png",
             "category": "Snacks",
             "stock": 45,
-            "description": "USDA organic dark chocolate, made with 70% cocoa"
+            "description": "USDA organic dark chocolate, made with 70% cocoa",
+            "quantity": 0
         },
         {
             "name": "Avocados, 4 Counts",
@@ -70,7 +78,8 @@
             "image": "../images/Avocado.png",
             "category": "Fruits",
             "stock": 35,
-            "description": "USDA organic avocado, fresh and ready to eat"
+            "description": "USDA organic avocado, fresh and ready to eat",
+            "quantity": 0
         },
         {
             "name": "Organic Light Brown Sugar, 24 Ounces",
@@ -78,7 +87,8 @@
             "image": "../images/BrownSugar.png",
             "category": "Baking",
             "stock": 55,
-            "description": "USDA organic brown sugar, pure and natural"
+            "description": "USDA organic brown sugar, pure and natural",
+            "quantity": 0
         },
         {
             "name": "Organic Eggs Free Range Large Brown, 12 Counts",
@@ -86,7 +96,8 @@
             "image": "../images/Eggs.png",
             "category": "Dairy",
             "stock": 70,
-            "description": "USDA organic free-range eggs, rich in omega-3 fatty acids"
+            "description": "USDA organic free-range eggs, rich in omega-3 fatty acids",
+            "quantity": 0
         }
     ]
 }
