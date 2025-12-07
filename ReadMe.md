@@ -64,6 +64,7 @@ All lists, items, and quantities are stored inside `localStorage`, ensuring the 
 ## **Project Structure**
 
 /
+
 ├── index.html
 ├── products.html
 ├── lists.html
