@@ -61,7 +61,6 @@ Each list page allows:
 
 All lists, items, and quantities are stored inside `localStorage`, ensuring the data remains available even after page reloads.
 
-*(Directory names can be adjusted to your actual layout.)*
 ## **Future Improvements (Optional Enhancements)**
 
 * Real integration with a backend inventory system
