@@ -1,27 +1,101 @@
-# Project Name
+# **WholeFoodsRedesign**
 
-WholeFoodsRedesign
+WholeFoodsRedesign is a front-end web application built with HTML, CSS, and JavaScript that simulates a modernized Whole Foods shopping experience. The app allows users to check simulated live stock availability and manage personalized shopping lists. Users can add products to lists, adjust quantities, and prepare orders directly within the interface.
 
-## Description
+## **Features**
 
-We have redesigned the Whole Foods App and made changes to the app that many users had issues with.
+### **List Management**
 
-## Installation
+* Create new shopping lists
+* Delete existing lists
+* Add products directly into any list
+* Quantity controls for every item (+ / –)
+* Automatic deletion confirmation when quantity falls to zero
 
-1. Clone the repository.
-2. Install dependencies using `npm install`.
+### **Product Interaction**
 
-## Usage
+* Live (simulated) stock visibility
+* Product search with real-time text highlighting
+* Product filtering by category
+* Smooth animations for quantity increase
+* Red flash animation for quantity decrease
 
-1. Run the application using `npm start`.
-2. Open your browser and navigate to `http://localhost:3000`.
+### **Pop-ups & UI Components**
 
-## Features
+* List-selection popup when adding an item
+* Remove-item confirmation popup
+* Responsive card-based product layout
 
-- List the main features of your project.
+### **Local Storage Integration**
 
-## Technologies Used
+* All lists and quantities persist across sessions
+* Fully client-side, no backend required
 
-- HTML
-- CSS
-- JavaScript
+## **Technology Stack**
+
+| Layer        | Tools                       |
+| ------------ | --------------------------- |
+| Frontend     | HTML, CSS, JavaScript       |
+| Storage      | Browser LocalStorage        |
+| Architecture | Modular DOM-based rendering |
+
+## **How It Works**
+
+### **1. Product Browsing**
+
+Users can view all available products, filter them by category, and search using keywords. Matching text is automatically highlighted.
+
+### **2. Adding Items to Lists**
+
+When selecting “Add to List,” users choose one of their existing lists through a popup. If the product already exists in the list, its quantity simply increases.
+
+### **3. Managing Quantities**
+
+Each list page allows:
+
+* Incrementing item quantities (with green scaling animation)
+* Decrementing item quantities (with red flash effect)
+* Triggering the remove confirmation popup if quantity hits zero
+
+### **4. Data Persistence**
+
+All lists, items, and quantities are stored inside `localStorage`, ensuring the data remains available even after page reloads.
+
+## **Project Structure**
+
+/
+├── index.html
+├── products.html
+├── lists.html
+├── css/
+│   ├── styles.css
+│   └── lists.css
+├── js/
+│   ├── products.js
+│   ├── lists.js
+│   ├── storage.js
+│   └── animations.js
+└── assets/
+    └── product-images/
+
+*(Directory names can be adjusted to your actual layout.)*
+## **Future Improvements (Optional Enhancements)**
+
+* Real integration with a backend inventory system
+* User authentication for cloud-stored lists
+* Drag-and-drop item sorting
+* Dark mode theme
+* Shared collaborative grocery lists
+
+## **How to Run the Project**
+
+1. Clone or download the repository
+2. Open `index.html` in any modern browser
+3. Use the navigation to view products or manage lists
+4. All data will automatically persist via localStorage
+
+No build steps or dependencies required.
+
+## **Author**
+
+Developed by **Code Crunchers** as part of a project for ITIS-4390 / ITIS-5390.
