@@ -61,24 +61,6 @@ Each list page allows:
 
 All lists, items, and quantities are stored inside `localStorage`, ensuring the data remains available even after page reloads.
 
-## **Project Structure**
-
-/
-
-├── index.html
-├── products.html
-├── lists.html
-├── css/
-│   ├── styles.css
-│   └── lists.css
-├── js/
-│   ├── products.js
-│   ├── lists.js
-│   ├── storage.js
-│   └── animations.js
-└── assets/
-    └── product-images/
-
 *(Directory names can be adjusted to your actual layout.)*
 ## **Future Improvements (Optional Enhancements)**
 
